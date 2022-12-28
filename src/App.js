@@ -1,10 +1,18 @@
-import React from 'react';
+import React from "react";
+import "./App.css";
+import { BrowserRouter as Router,Routes, Route, Link } from 'react-router-dom';
+import TeamListing from "./containers/teamListing/teamListing";
 
-export function App() {
+const App = () => {
     return (
-        <div>
-            <h1>React App</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quos delectus voluptatem ab repellat saepe eos molestiae cupiditate, omnis doloremque, necessitatibus totam consectetur porro sint quam libero aperiam? Laborum, quaerat?</p>
-        </div>
+       <Router>
+           <div className="App">
+           <Routes>
+                 <Route exact path='/' element={< TeamListing />}></Route>
+          </Routes>
+          </div>
+       </Router>
     );
-}
+  }
+
+export default App;

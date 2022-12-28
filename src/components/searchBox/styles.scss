@@ -1,0 +1,13 @@
+.search-box {
+    height: 36px;
+    background: #FFFFFF;
+    border: 2px solid #074684;
+    border-radius: 10px;
+    overflow: hidden;
+    .search-input{
+        @extend .search-box;
+        outline: none;
+        border: none;
+        width: 90%;
+    }
+}
