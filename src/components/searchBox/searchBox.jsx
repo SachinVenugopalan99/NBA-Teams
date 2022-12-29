@@ -1,4 +1,6 @@
 import React from 'react';
+import searchIcon from '../../assets/searchIcon.png';
+import PropTypes from 'prop-types';
 import './styles.scss';
 
 const SearchBox = (props) => {
@@ -6,9 +8,9 @@ const SearchBox = (props) => {
   return (
     <div className='search-box'>
         <img 
-        src='assets\searchIcon.svg'
-        width='16px'
-        height='16px'
+        src={searchIcon}
+        width='15px'
+        height='15px'
         />
         <input
         className='search-input'
@@ -19,6 +21,17 @@ const SearchBox = (props) => {
         />
     </div>
   )
-}
+};
+SearchBox.propTypes = {
+  placeHolder: PropTypes.string,
+  onChange: PropTypes.func,
+  value: PropTypes.string,
+};
+
+SearchBox.defaultProps = {
+  placeHolder: '',
+  onChange: () => null,
+  value: ''
+};
 export default SearchBox
 

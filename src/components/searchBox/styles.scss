@@ -4,10 +4,16 @@
     border: 2px solid #074684;
     border-radius: 10px;
     overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
     .search-input{
         @extend .search-box;
         outline: none;
         border: none;
         width: 90%;
+    }
+    img{
+        margin-left: 10px;
     }
 }

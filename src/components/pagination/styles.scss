@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    align-items: center;
+    .blueBox{
+        width: 40px;
+        height: 35px;
+        background: #074684;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .disableButton{
+        cursor: not-allowed;
+    }
+}

@@ -1,3 +1,17 @@
-h1 {
-    color: blue;
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+*{
+    box-sizing: border-box;
+    outline: none;
+}
+
+body,
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0px;
+    font-family: 'Roboto';
+}
+.App{
+    height: 100vh;
 }

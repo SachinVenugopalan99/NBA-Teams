@@ -1,46 +1,66 @@
 import React from 'react';
-import { testID } from '@app/constants/testID';
+import './styles.scss';
+import nextIcon from '../../assets/nextIcon.png';
+import previousIcon from '../../assets/previousIcon.png';
+import PropTypes from 'prop-types';
 
 const Pagination = ({
   next,
   currentPage,
   previous,
   totalPages,
-  limit,
-  itemsInPage,
-  totalItems = 0,
-  hasNextPage = true
+  setPage,
 }) => {
-  const nextDisabled = totalPages === currentPage;
-  const previousDisabled = currentPage === 1;
-  const currentPageIndex = currentPage - 1;
   return (
-    <div className='h-[1rem] my-4 flex flex-row items-center justify-center'>
+    <div className='container'>
+      <div className='blueBox'
+      onClick={currentPage > 1 ? previous : () => null}
+      style={{cursor: currentPage > 1 ? 'pointer' : 'not-allowed'}}
+      >
       <img
-        src='assets/icons/select-arrow.svg'
-        alt=''
-        className={`inline-block h-[10px] w-6 transform rotate-90 mx-1 ${previousDisabled ? 'opacity-50' : 'cursor-pointer'
-          }`}
-        role='presentation'
-        onClick={currentPage > 1 ? previous : () => null}
-        id={testID?.pagination?.leftArrow}
-      />
-      <span className='text-center mx-[10px] body-2'>
-        {`Showing ${currentPageIndex * limit + 1} - ${currentPageIndex * limit + itemsInPage
-          }`}
-        {totalItems > 0 && ` of ${totalItems}`}
-      </span>
-      <img
-        src='assets/icons/select-arrow.svg'
-        alt=''
-        className={`inline-block h-[10px] w-6 transform -rotate-90 mx-1 ${(nextDisabled || !hasNextPage) ? 'opacity-50' : 'cursor-pointer'
-          }`}
-        role='presentation'
-        onClick={hasNextPage ? next : () => null}
-        id={testID?.pagination?.rightArrow}
+        src={previousIcon}
+        width='16px'
+        height='16px'
       />
       </div>
+      <div className='blueBox'
+      onClick={() =>setPage(currentPage - 1)}
+      >
+       {currentPage}
+      </div>
+      <div className='blueBox'
+      onClick={() => setPage(totalPages - 1)}
+      >
+       {totalPages}
+      </div>
+      <div className='blueBox'
+        onClick={currentPage < totalPages ? next : () => null}
+        style={{cursor: currentPage < totalPages ? 'pointer' : 'not-allowed'}}
+      >
+      <img
+        src={nextIcon}
+        width='16px'
+        height='16px'
+      />
+      </div>
+      </div>
   );
+};
+
+Pagination.propTypes = {
+  currentPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  next: PropTypes.func,
+  previous: PropTypes.func,
+  setPage: PropTypes.func,
+};
+
+Pagination.defaultProps = {
+  currentPage: 0,
+  totalPages: 0,
+  next: () => null,
+  previous: () => null,
+  setPage: () => null,
 };
 
 export default Pagination;

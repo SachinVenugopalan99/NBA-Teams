@@ -1,0 +1,30 @@
+.outerContainer{
+    width: 100%;
+    height: 100%;
+    padding: 30px 60px;
+    overflow: auto;
+    .heading{
+        font-size: 32px;
+        color: #074684;
+        font-weight: 700;
+    }
+    .searchInput{
+        width: 60%;
+        margin: 24px 0px;
+    }
+    .tableContainer{
+        width: 100%;
+    }
+    .paginationContainer{
+        display: flex;
+        justify-content: end;
+        margin-top: 20px;
+    }
+    .resultContainer{
+        display: flex;
+        align-items: center;
+        justify-self: center;
+        height: 400px;
+        margin-left: 300px;
+    }
+}
