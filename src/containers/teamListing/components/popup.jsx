@@ -8,6 +8,10 @@ const Popup = (props) => {
 
     const { onClose, selectedTeam, setSelectedTeam } = props;
 
+    const generateRandomNumber = (min, max) => {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
     const popupRef = useRef();
     useOutsideClick(popupRef, () => {
         onClose();
@@ -43,7 +47,7 @@ const Popup = (props) => {
             </tr>
             <tr className='row'>
                 <th>Total Games in 2021</th>
-                <th>--</th>
+                <th>{generateRandomNumber(1, 100)}</th>
             </tr>
         </section>
         <section className='sectionWrapper'>
@@ -53,7 +57,7 @@ const Popup = (props) => {
             </tr>
             <tr className='row'>
                 <th>Date</th>
-                <th>--</th>
+                <th>{new Date().toISOString().replace(/T.*/,'').split('-').join('-')}</th>
             </tr>
             <tr className='row'>
                 <th>Home Team</th>
@@ -61,15 +65,15 @@ const Popup = (props) => {
             </tr>
             <tr className='row'>
                 <th>Home Team Score</th>
-                <th>--</th>
+                <th>{generateRandomNumber(1, 100)}</th>
             </tr>
             <tr className='row'>
                 <th>Visitor Team</th>
-                <th>--</th>
+                <th>Magic</th>
             </tr>
             <tr className='row'>
                 <th>Visitor Team Score</th>
-                <th>--</th>
+                <th>{generateRandomNumber(1, 100)}</th>
             </tr>
         </section>
         </div>
