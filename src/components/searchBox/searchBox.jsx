@@ -16,8 +16,10 @@ const SearchBox = (props) => {
         className='search-input'
         placeholder={placeHolder}
         onChange={onChange} 
+        name='teams'
         type='text'
         value={value}
+        id='search-input'
         />
     </div>
   )

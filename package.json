@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "webpack-dev-server --mode development --hot",
     "dev:open": "webpack-dev-server --mode development --hot --open",
-    "build": "NODE_ENV='production' webpack --mode=production"
+    "build": "NODE_ENV='production' webpack --mode=production",
+    "cypress": "cypress open"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "autoprefixer": "^10.4.13",
     "babel-loader": "^9.1.0",
     "css-loader": "^6.7.3",
+    "cypress": "^12.2.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.2",
