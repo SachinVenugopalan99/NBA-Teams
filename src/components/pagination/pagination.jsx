@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {memo} from 'react';
 import './styles.scss';
 import nextIcon from '../../assets/nextIcon.png';
 import previousIcon from '../../assets/previousIcon.png';
@@ -63,4 +63,4 @@ Pagination.defaultProps = {
   setPage: () => null,
 };
 
-export default Pagination;
+export default memo(Pagination);

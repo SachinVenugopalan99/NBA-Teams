@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import searchIcon from '../../assets/searchIcon.png';
 import PropTypes from 'prop-types';
 import './styles.scss';
@@ -35,5 +35,5 @@ SearchBox.defaultProps = {
   onChange: () => null,
   value: ''
 };
-export default SearchBox
+export default memo(SearchBox);
 

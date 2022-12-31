@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, memo } from 'react';
 import { useOutsideClick } from '../../../utils/custom-hooks';
 import closeIcon from '../../../assets/closeIcon.png';
 import PropTypes from 'prop-types';
@@ -83,15 +83,15 @@ const Popup = (props) => {
   )
 };
 Popup.propTypes = {
-    selectedTeam: PropTypes.string,
+    selectedTeam: PropTypes.arrayOf(PropTypes.shape()),
     onClose: PropTypes.func,
     setSelectedTeam: PropTypes.func
   };
   
   Popup.defaultProps = {
-    selectedTeam: '',
+    selectedTeam: [],
     onClose: () => null,
     setSelectedTeam: () => null
   };
 
-export default Popup;
+export default memo(Popup);

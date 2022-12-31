@@ -1,4 +1,4 @@
- import React from 'react';
+ import React, {memo} from 'react';
  import PropTypes from 'prop-types';
  import sort from '../../assets/sort.png';
  import './styles.scss';
@@ -15,12 +15,13 @@
      const key = row.id;
  
      return (
-       <div key={key} className={`row-wrapper ${selectedTeam?.id === row?.id && 'selectedRow'}`}>
+       <div key={key} className={`row-wrapper ${selectedTeam?.id === row?.id && 'selectedRow'}`}
+       onClick={(evt) => handleRowClick(evt, row)}
+       >
          {tableHeads.map((head) => 
            <div
              key={head.label}
              style={{ minWidth: head?.width, maxWidth: head?.width }}
-             onClick={(evt) => handleRowClick(evt, row)}
            >
              <div key={head.label} className="data-field">{row[head?.value]}</div>
              {!row[head?.value] && head?.value && (
@@ -82,4 +83,4 @@
    handleSort: () => null,
  };
  
- export default List;
+ export default memo(List);
