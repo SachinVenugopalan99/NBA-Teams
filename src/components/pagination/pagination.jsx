@@ -14,6 +14,7 @@ const Pagination = ({
   return (
     <div className='container'>
       <div className='blueBox'
+      id='previousIcon'
       onClick={currentPage > 1 ? previous : () => null}
       style={{cursor: currentPage > 1 ? 'pointer' : 'not-allowed'}}
       >
@@ -24,16 +25,19 @@ const Pagination = ({
       />
       </div>
       <div className='blueBox'
+      id='number1'
       onClick={() =>setPage(currentPage - 1)}
       >
        {currentPage}
       </div>
       <div className='blueBox'
+      id='number2'
       onClick={() => setPage(totalPages - 1)}
       >
        {totalPages}
       </div>
       <div className='blueBox'
+        id='nextIcon'
         onClick={currentPage < totalPages ? next : () => null}
         style={{cursor: currentPage < totalPages ? 'pointer' : 'not-allowed'}}
       >

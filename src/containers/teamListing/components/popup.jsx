@@ -28,6 +28,7 @@ const Popup = (props) => {
           {selectedTeam?.full_name}
           </div>
           <div
+          id='close-popup'
           onClick={() => {
             onClose();
             setSelectedTeam([]);
