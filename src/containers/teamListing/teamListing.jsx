@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { debounce } from '../../utils/custom-hooks';
 import axios from 'axios';
 import SearchBox from '../../components/searchBox/searchBox';
 import List from '../../components/list/list';
@@ -17,6 +18,8 @@ const TeamListing = () => {
     const [isPopupOpen, setIsPopupOpen] = useState(false);
     const [sortASC, setSortASC] = useState(true);
     const LIMIT = 7;
+
+    const debouncedSearhTerm = debounce(searchTerm, 250);
 
     const url = 'https://www.balldontlie.io/api/v1/teams';
     const fetchData = async () => {
@@ -38,15 +41,15 @@ const TeamListing = () => {
     }, []);
 
     useEffect(() => {
-        if (searchTerm) {
-            const result = teamList?.filter((item) => item?.full_name?.toLowerCase()?.includes(searchTerm?.toLowerCase()));
+        if (debouncedSearhTerm) {
+            const result = teamList?.filter((item) => item?.full_name?.toLowerCase()?.includes(debouncedSearhTerm?.toLowerCase()));
             setPage(0);
             setRenderTeamList(result);
         } else {
             setRenderTeamList(teamList);
         }
 
-    }, [searchTerm]);
+    }, [debouncedSearhTerm]);
 
  const tableHeads = [
     {

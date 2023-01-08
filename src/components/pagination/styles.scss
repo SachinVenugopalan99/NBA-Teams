@@ -12,6 +12,9 @@
         color: white;
         margin-left: 10px;
         cursor: pointer;
+        &:hover {
+            opacity: 0.6;
+        }
     }
     .disableButton{
         cursor: not-allowed;
